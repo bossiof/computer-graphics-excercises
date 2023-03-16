@@ -1,0 +1,5 @@
+#!/bin/bash
+g++ -std=c++17 -O2\
+         -o $1/run $1/$1.cpp\
+         -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi\
+         -I/usr/include/stb && (cd $1; ./run; cd -)
