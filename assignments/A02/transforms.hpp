@@ -1,4 +1,4 @@
-
+#include <>
 
 void SetupMatrices(Assignment02 *A) {
 /**************
@@ -6,21 +6,23 @@ void SetupMatrices(Assignment02 *A) {
  receives in N the number of matrix that needs to be set, and in values v11 to v44 the 16 values
  composing the corrisponding matrix 
 ***************/
-
+	glm::mat4 T,R,Sh,S;
 	// To solve the puzzle: translate 2 along x, and 3 along z
 	A->Matrix(1,
 			  1, 0, 0, 2,
 			  0, 1, 0, 0,
 			  0, 0, 1, 3,
 			  0, 0, 0, 1); // sets the matrix corresponding to piece 1
-
+	T = glm::translate(glm::mat4(1), glm::vec(2,3,3));
+	A = T*A;
 	// To solve the puzzle: rotate -15 degrees around the z axis
 	A->Matrix(2,
 			   0.96592, 0.2588, 0, 0,
 			  -0.2588,  0.96592, 0, 0,
 			  0, 0, 1, 0,
 			  0, 0, 0, 1); // sets the matrix corresponding to piece 2
-
+	R = glm::rotate(glm::mat4(1),glm::radians(-15.0f),glm::vec3(0,0,1));
+	A = R*A;
 	// To solve the puzzle: mirror over the yz plane
 	A->Matrix(3,
 			  -1, 0, 0, 0,
