@@ -1,7 +1,7 @@
 
 
-DIR=./A02
-NAME=A02
+DIR=./A10
+NAME=A10
 
 ifndef DIR
 $(error DIR is not set)
@@ -20,7 +20,7 @@ LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 all: clean build test
 
 # shader:
-# 	cd $(DIR)/shaders/ && ./compile.sh
+	#cd $(DIR)/shaders/ && ./compile.sh
 
 build: $(FILEPATH).cpp
 	g++ $(CFLAGS) -o $(FILEPATH) $(FILEPATH).cpp $(INCLUDE) $(LDFLAGS)

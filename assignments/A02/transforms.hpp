@@ -1,5 +1,3 @@
-#include <>
-
 void SetupMatrices(Assignment02 *A) {
 /**************
  Method Matrix(int N, float v11, float v12, ... , float v14, float v21, ... , float v44) of object A,
@@ -13,16 +11,12 @@ void SetupMatrices(Assignment02 *A) {
 			  0, 1, 0, 0,
 			  0, 0, 1, 3,
 			  0, 0, 0, 1); // sets the matrix corresponding to piece 1
-	T = glm::translate(glm::mat4(1), glm::vec(2,3,3));
-	A = T*A;
 	// To solve the puzzle: rotate -15 degrees around the z axis
 	A->Matrix(2,
 			   0.96592, 0.2588, 0, 0,
 			  -0.2588,  0.96592, 0, 0,
 			  0, 0, 1, 0,
 			  0, 0, 0, 1); // sets the matrix corresponding to piece 2
-	R = glm::rotate(glm::mat4(1),glm::radians(-15.0f),glm::vec3(0,0,1));
-	A = R*A;
 	// To solve the puzzle: mirror over the yz plane
 	A->Matrix(3,
 			  -1, 0, 0, 0,
